@@ -10,32 +10,47 @@ namespace EmployeeDetails
     {
         static void Main(string[] args)
         {
-			String name;
-			String address;
-			String mobileno;
-			String mailid;
-			String qualification;
-			String dob;
-			Console.WriteLine("Enter your Name :");
-			name = Console.ReadLine();
-			Console.WriteLine("Enter your Address :");
-			address = Console.ReadLine();
-			Console.WriteLine("Enter your MobileNo :");
-			mobileno = Console.ReadLine();
-			Console.WriteLine("Enter your MailId :");
-			mailid = Console.ReadLine();
-			Console.WriteLine("Enter your Qualification :");
-			qualification = Console.ReadLine();
-			Console.WriteLine("Enter today Dob :");
-			date = Console.ReadLine();
-			Console.WriteLine("---------------------------------");
-			Console.WriteLine(name);
-			Console.WriteLine(address);
-			Console.WriteLine(mobileno);
-			Console.WriteLine(mailid);
-			Console.WriteLine(qualification);
-			Console.WriteLine(date);
-			Console.Read();
-		}
+
+            string name;
+            string emailId;
+            string mobileNumber;
+            string address;
+            int sal;
+            DateTime doj;
+
+            Console.WriteLine("Enter your name");
+            name = Console.ReadLine();
+
+            Console.WriteLine("Enter your emailId");
+            emailId = Console.ReadLine();
+
+            Console.WriteLine("Enter your mobileNumber");
+            mobileNumber = Console.ReadLine();
+
+            Console.WriteLine("Enter your address");
+            address = Console.ReadLine();
+
+            Console.WriteLine("Enter your doj");
+            doj = Convert.ToDateTime(Console.ReadLine());
+
+            Console.WriteLine("Enter your sal");
+            sal = Convert.ToInt32(Console.ReadLine());
+            Console.WriteLine("Employee details are : ");
+
+            DateTime today = DateTime.Today;
+            String exp = (today - doj).TotalDays.ToString();
+            int totalDays = Convert.ToInt32(exp);
+            int year = totalDays / 365;
+            int remainingDays = totalDays % 365;
+            int month = remainingDays / 30;
+            remainingDays = remainingDays % 30;
+            string Text = year + "years " + month + "months and " + remainingDays + "days";
+
+            Console.WriteLine("Experience of " + name + " is: " + Text);
+
+            long annualSal = sal * 12;
+            Console.Write("Annual salary is: " + "$ " + annualSal);
+            Console.ReadLine();
+        }
     }
 }
